@@ -2,6 +2,7 @@
 
 import numpy as np
 import pandas as pd
+from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import PowerTransformer, FunctionTransformer, MinMaxScaler, RobustScaler
 
@@ -36,12 +37,16 @@ def build_transformer():
 def build_impact_transformer():
     return ColumnTransformer(
         transformers=[
-            ('precip', FunctionTransformer(np.log1p, validate=False), [
-                'sup_ttl_precip', 'mi_ttl_precip', 'huron_ttl_precip', 'erie_ttl_precip', 'ont_ttl_precip']),
-            ('evap_anom', RobustScaler(), [
-                'sup_ttl_evap_anom', 'mi_ttl_evap_anom', 'huron_ttl_evap_anom', 'erie_ttl_evap_anom', 'ont_ttl_evap_anom']),
+            ("precip", FunctionTransformer(np.log1p, validate=False), [
+                'sup_ttl_precip', 'mi_ttl_precip', 'huron_ttl_precip',
+                'erie_ttl_precip', 'ont_ttl_precip'
+            ]),
+            ("evap_anom", PowerTransformer(), [
+                'sup_ttl_evap_anom', 'mi_ttl_evap_anom', 'huron_ttl_evap_anom',
+                'erie_ttl_evap_anom', 'ont_ttl_evap_anom'
+            ])
         ],
-        remainder='drop'
+        remainder="drop"
     )
 
 def apply_transformer(transformer, df, feature_cols):
