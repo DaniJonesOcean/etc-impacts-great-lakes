@@ -18,9 +18,9 @@ The following is a brief description of the data included in `era5_etc.csv`. An 
 | `max_p_grad`                       | Maximum pressure gradient during the ETC’s lifespan                                           | hPa                       | float        |
 | `max_radius`                       | Maximum ETC radius during the ETC’s lifespan                                                  | km                        | float        |
 | `max_uv`                           | Maximum ETC propagation speed during the ETC’s lifespan                                       | km/hr                     | float        |
-| `sup_ttl_precip`, `mi_ttl_precip`, `hur_ttl_precip`, `erie_ttl_precip`, `ont_ttl_precip` | Sum of over-lake precipitation for each lake while the ETC is in the region | m precipitation per m²    | float        |
-| `sup_ttl_evap`, `mi_ttl_evap`, `hur_ttl_evap`, `erie_ttl_evap`, `ont_ttl_evap` | Over-lake evaporation for each lake                                           | m evaporation per m²      | float        |
-| `sup_ttl_run`, `mi_ttl_run`, `hur_ttl_run`, `erie_ttl_run`, `ont_ttl_run` | Runoff for each lake basin                                                         | m runoff per m²           | float        |
+| `sup_ttl_precip`, `mi_ttl_precip`, `hur_ttl_precip`, `erie_ttl_precip`, `ont_ttl_precip` | Sum of over-lake precipitation for each lake while the ETC is in the region | m precipitation   | float        |
+| `sup_ttl_evap`, `mi_ttl_evap`, `hur_ttl_evap`, `erie_ttl_evap`, `ont_ttl_evap` | Over-lake evaporation for each lake                                           | m evaporation     | float        |
+| `sup_ttl_run`, `mi_ttl_run`, `hur_ttl_run`, `erie_ttl_run`, `ont_ttl_run` | Runoff for each lake basin                                                         | m runoff          | float        |
 | `sup_ttl_P_minus_E`, `mi_ttl_P_minus_E`, `hur_ttl_P_minus_E`, `erie_ttl_P_minus_E`, `ont_ttl_P_minus_E` | Over-lake P-E (precipitation minus evaporation) for each lake | m P-E per m²               | float        |
 | `total_hours_in_GLR`               | Total time the ETC spends in the GLR                                                           | hours                     | integer      |
 | `genesis_date_time`, `lysis_date_time`, `glr0_date_time` | Datetime format conversions of year, month, day, and hour information for cyclogenesis, cyclolysis, and GLR entrance | %y-%m-%d %h:%m:%s          | Python Object |
@@ -62,4 +62,19 @@ The features in the CFSR dataset are practically identical to those listed for t
 | Lake Huron    | hur          |
 | Lake Erie     | erie         |
 | Lake Ontario  | ont          |
+
+### 💧 A Note About Volumetric Impacts (m³)
+
+The precipitation and evaporation values in this dataset are given in **meters (m)** — not as raw precipitation totals, but as **equivalent depth** over the lake's surface. These values represent the **volume of water added or removed by a storm, divided by the lake's surface area**. In other words, they are **volume-per-area** quantities, expressed as a depth.
+
+To recover the actual **volumetric impact** of a storm on a lake, we multiply these depth values by the lake's surface area (in m²), yielding a volume in cubic meters:
+
+Depth (m) × Lake Area (m²) = Volume (m³)
+
+This conversion is essential if we want to compare impacts across lakes of different sizes or compute total basin-wide effects. Without it, the same depth over Lake Superior and Lake Ontario would misleadingly imply equal impacts.
+
+
+
+
+
 
