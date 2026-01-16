@@ -21,18 +21,51 @@ def clean_teleconnections(df):
             df.loc[df[col] < -9000, col] = np.nan
     return df
 
+import numpy as np
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import FunctionTransformer
+
+
 def build_transformer():
+    """
+    Build a minimal, physically interpretable preprocessing transformer
+    for unsupervised clustering.
+
+    Strategy:
+    - Apply log1p to strictly positive, right-skewed variables
+    - Leave bounded or dimensionless variables in native scale
+    - Avoid distribution-shaping transforms that obscure physical meaning
+    """
+
+    log1p_vars = [
+        "max_p_grad",
+        "max_radius",
+        "max_uv",
+    ]
+
+    passthrough_vars = [
+        "min_p_cent",
+        "fraction_of_time_in_GLR",
+        "maturity_glr0_minus_genesis_ratio",
+    ]
+
     return ColumnTransformer(
         transformers=[
-            ('min_p_cent', PowerTransformer(method='box-cox'), ['min_p_cent']),
-            ('max_p_grad', FunctionTransformer(np.log1p, validate=False), ['max_p_grad']),
-            ('max_radius', FunctionTransformer(np.log1p, validate=False), ['max_radius']),
-            ('max_uv', PowerTransformer(method='box-cox'), ['max_uv']),
-            ('fraction_of_time_in_GLR', MinMaxScaler(), ['fraction_of_time_in_GLR']),
-            ('maturity_glr0_minus_genesis_ratio', RobustScaler(), ['maturity_glr0_minus_genesis_ratio']),
+            (
+                "log1p",
+                FunctionTransformer(np.log1p, validate=False),
+                log1p_vars,
+            ),
+            (
+                "pass",
+                "passthrough",
+                passthrough_vars,
+            ),
         ],
-        remainder='drop'
+        remainder="drop",
+        verbose_feature_names_out=False,
     )
+
 
 def build_impact_transformer():
     return ColumnTransformer(
