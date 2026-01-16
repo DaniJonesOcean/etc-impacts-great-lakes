@@ -1,0 +1,8 @@
+[
+  "min_p_cent",
+  "max_p_grad",
+  "max_radius",
+  "max_uv",
+  "fraction_of_time_in_GLR",
+  "maturity_glr0_minus_genesis_ratio"
+]
