@@ -1,0 +1,16 @@
+name: etc-paper
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - matplotlib
+  - cartopy
+  - shapely
+  - pyproj
+  - proj
+  - geos
+  - pip
+  - pip:
+      - jupyter
