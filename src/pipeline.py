@@ -8,10 +8,11 @@ from sklearn.preprocessing import PowerTransformer, FunctionTransformer, MinMaxS
 
 def add_season(df):
     def assign_season(month):
-        if month in [12, 1, 2]: return 'DJF'
-        elif month in [3, 4, 5]: return 'MAM'
-        elif month in [6, 7, 8]: return 'JJA'
-        else: return 'SON'
+        if month in [1, 2, 3]: return 'JFM'
+        elif month in [4, 5, 6]: return 'AMJ'
+        elif month in [7, 8, 9]: return 'JAS'
+        elif month in [10, 11, 12]: return 'OND'
+        else: return 'ERR'
     df['season'] = df['month'].apply(assign_season)
     return df
 
