@@ -1,9 +1,8 @@
 # ETC Impacts in the Great Lakes
 
-[![DOI](https://zenodo.org/badge/DOI/10.xxxx/zenodo.xxxxx.svg)](https://doi.org/10.xxxx/zenodo.xxxxx)
 [![License: GPL v3](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![Python](https://img.shields.io/badge/python-3.12-blue.svg)
-![Status](https://img.shields.io/badge/status-published-green.svg)
+![Status](https://img.shields.io/badge/status-research%20code-blue.svg)
 
 Unsupervised classification of extratropical cyclones reveals differences in precipitation and evaporation impacts across the Great Lakes.
 
