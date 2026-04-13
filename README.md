@@ -1,6 +1,6 @@
 # Unsupervised Storm Classification Reveals Differences in Great Lakes Impacts
 
-This repository contains the data processing, clustering, and analysis pipeline used to identify distinct classes of extratropical cyclones (ETCs) and quantify their impacts on the Great Lakes.
+This repository contains the data processing, clustering, and analysis pipeline used to identify classes of extratropical cyclones (ETCs) and quantify their impacts on the Great Lakes.
 
 The analysis applies unsupervised learning (Gaussian Mixture Models) to storm characteristics and evaluates differences in precipitation and evaporation impacts across storm types.
 
