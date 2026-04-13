@@ -1,4 +1,11 @@
-# Unsupervised Storm Classification Reveals Differences in Great Lakes Impacts
+# ETC Impacts in the Great Lakes
+
+[![DOI](https://zenodo.org/badge/DOI/10.xxxx/zenodo.xxxxx.svg)](https://doi.org/10.xxxx/zenodo.xxxxx)
+[![License: GPL v3](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+![Python](https://img.shields.io/badge/python-3.12-blue.svg)
+![Status](https://img.shields.io/badge/status-published-green.svg)
+
+Unsupervised classification of extratropical cyclones reveals differences in precipitation and evaporation impacts across the Great Lakes.
 
 This repository contains the data processing, clustering, and analysis pipeline used to identify classes of extratropical cyclones (ETCs) and quantify their impacts on the Great Lakes.
 
@@ -103,3 +110,11 @@ This repository is released under the terms of the license provided in `LICENSE`
 Dani Jones  
 Cooperative Institute for Great Lakes Research (CIGLR)  
 University of Michigan
+
+---
+
+## Citation
+
+If you use this repository, please cite:
+
+Jones, D. et al. (2026). *ETC impacts in the Great Lakes*. Zenodo. https://doi.org/10.xxxx/zenodo.xxxxx
