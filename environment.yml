@@ -1,16 +1,31 @@
 name: etc-paper
 channels:
   - conda-forge
+
 dependencies:
-  - python=3.12
+  - python=3.12.*
+
+  # Core
   - numpy
   - pandas
   - matplotlib
+  - seaborn
+
+  # ML
+  - scikit-learn
+  - joblib
+
+  # Geospatial (cartopy stack)
   - cartopy
   - shapely
   - pyproj
   - proj
   - geos
+
+  # SSL sanity
+  - certifi
+
+  # Notebook support
   - pip
   - pip:
       - jupyter
