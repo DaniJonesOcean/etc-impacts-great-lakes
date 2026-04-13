@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: "ETC impacts in the Great Lakes"
+message: "If you use this repository, please cite it as below."
+type: software
+
+authors:
+  - family-names: Jones
+    given-names: Dani
+  - family-names: Ward
+    given-names: Jamie
+  - family-names: Mroczka
+    given-names: Bryan
+
+doi: 10.5281/zenodo.19559385
+version: v1.0.1
+date-released: 2026-04-13
+
+license: GPL-3.0
+
+repository-code: https://github.com/DaniJonesOcean/etc-impacts-great-lakes
